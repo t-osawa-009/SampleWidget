@@ -38,7 +38,7 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-struct widgetSaleEntryView : View {
+struct WidgetSaleEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
@@ -52,7 +52,7 @@ struct WidgetSale: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            widgetSaleEntryView(entry: entry)
+            WidgetSaleEntryView(entry: entry)
         }
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
@@ -61,7 +61,7 @@ struct WidgetSale: Widget {
 
 struct Widget_Previews: PreviewProvider {
     static var previews: some View {
-        widgetSaleEntryView(entry: SimpleEntry(date: Date()))
+        WidgetSaleEntryView(entry: SimpleEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
